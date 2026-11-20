@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zeynep ❤️ Emirhan</title>
+
+<style>
+
+* { box-sizing: border-box; }
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  background: radial-gradient(circle at center, #411522, #17090f 65%, #080507);
+
+  color: #f8e8df;
+
+  font-family: Georgia, serif;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 25px;
+
+  overflow-x: hidden;
+
+}
+
+.container {
+
+  width: 100%;
+
+  max-width: 480px;
+
+  text-align: center;
+
+}
+
+.small {
+
+  color: #c9a46b;
+
+  letter-spacing: 5px;
+
+  font-size: 11px;
+
+  margin-bottom: 35px;
+
+}
+
+h1 {
+
+  font-size: 35px;
+
+  font-weight: normal;
+
+  color: #f3d6b0;
+
+  margin-bottom: 12px;
+
+}
+
+.subtitle {
+
+  color: #d3a8a9;
+
+  font-size: 14px;
+
+  margin-bottom: 55px;
+
+}
+
+.envelope {
+
+  position: relative;
+
+  width: 270px;
+
+  height: 175px;
+
+  background: #761e35;
+
+  margin: 0 auto;
+
+  cursor: pointer;
+
+  border-radius: 4px;
+
+  box-shadow: 0 15px 50px #0009;
+
+  transition: transform .4s;
+
+}
+
+.envelope:hover {
+
+  transform: translateY(-7px);
+
+}
+
+.envelope:before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: #8d2944;
+
+  clip-path: polygon(0 0, 50% 57%, 100% 0);
+
+  z-index: 3;
+
+  transform-origin: top;
+
+  transition: transform .9s;
+
+}
+
+.envelope:after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: #60172c;
+
+  clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+
+  z-index: 2;
+
+}
+
+.seal {
+
+  position: absolute;
+
+  z-index: 4;
+
+  top: 65px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 43px;
+
+  height: 43px;
+
+  border-radius: 50%;
+
+  background: #d1a45f;
+
+  color: #65172d;
+
+  display: grid;
+
+  place-items: center;
+
+  font-size: 23px;
+
+  transition: opacity .3s;
+
+}
+
+.hint {
+
+  color: #e1c6bb;
+
+  margin-top: 30px;
+
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+}
+
+.letter {
+
+  display: none;
+
+  background: linear-gradient(145deg, #f7e9d8, #ead4c1);
+
+  color: #542536;
+
+  padding: 32px 25px;
+
+  border-radius: 5px;
+
+  box-shadow: 0 15px 60px #0009;
+
+  text-align: left;
+
+  line-height: 1.9;
+
+  animation: appear 1.2s ease;
+
+}
+
+.letter h2 {
+
+  text-align: center;
+
+  font-weight: normal;
+
+  color: #8a2945;
+
+  margin-top: 0;
+
+}
+
+.letter p {
+
+  font-size: 15px;
+
+}
+
+.signature {
+
+  text-align: right;
+
+  color: #8a2945;
+
+  font-style: italic;
+
+  font-size: 19px;
+
+  margin-top: 25px;
+
+}
+
+.open .envelope {
+
+  display: none;
+
+}
+
+.open .hint {
+
+  display: none;
+
+}
+
+.open .letter {
+
+  display: block;
+
+}
+
+@keyframes appear {
+
+  from { opacity: 0; transform: translateY(25px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+.footer {
+
+  color: #a77c7d;
+
+  font-size: 11px;
+
+  margin-top: 40px;
+
+  letter-spacing: 2px;
+
+}
+
+.heart {
+
+  position: fixed;
+
+  bottom: -20px;
+
+  color: #c34c69;
+
+  animation: float 6s linear forwards;
+
+  pointer-events: none;
+
+}
+
+@keyframes float {
+
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container" id="main">
+
+  <div class="small">A STORY WRITTEN WITH LOVE</div>
+
+  <h1>Zeynep ❤️ Emirhan</h1>
+
+  <div class="subtitle">Sana anlatmak istediğim küçük bir şey var...</div>
+
+  <div class="envelope" onclick="openLetter()">
+
+    <div class="seal">♥️</div>
+
+  </div>
+
+  <div class="hint">ZARFI AÇMAK İÇİN DOKUN</div>
+
+  <div class="letter">
+
+    <h2>Sevgili Zeynep ❤️</h2>
+
+    <p>
+
+    yavrum seninle geçirdiğim her an benim için çok kıymetli bazen sana bakarken ne kadar şanslı olduğumu düşünüyorum hayatımda olman bana çok güzel hissettiriyor senin gülüşün sesin bana bakışın bile günümü güzelleştirmeye yetiyor belki her zaman her şeyi mükemmel yapamıyorum ama seni gerçekten çok seviyorum ve her geçen gün sana daha çok bağlanıyorum tek istediğim seninle daha nice güzel anılar biriktirmek ve her zaman yanında olmak iyi ki varsın iyi ki benimlesin sevgilim ❤️
+
+    </p>
+
+    <div class="signature">Seni seven Emirhan</div>
+
+  </div>
+
+  <div class="footer">SONSUZA DEK SENİNLE ♥️</div>
+
+</div>
+
+<script>
+
+function openLetter() {
+
+  document.getElementById("main").classList.add("open");
+
+  for (let i = 0; i < 18; i++) {
+
+    setTimeout(createHeart, i * 180);
+
+  }
+
+}
+
+function createHeart() {
+
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+
+  heart.innerHTML = "♥️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+
+</script>
+
+</body>
+
+</html>
