@@ -8,299 +8,201 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zeynep ❤️ Emirhan</title>
+<meta name="theme-color" content="#160910">
+
+<title>Our Little Universe ❤️</title>
 
 <style>
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-body {
+body{
 
-  margin: 0;
+ margin:0;background:#12080e;color:#f6e8df;
 
-  min-height: 100vh;
+ font-family:Georgia,serif;min-height:100vh;
 
-  background: radial-gradient(circle at center, #411522, #17090f 65%, #080507);
-
-  color: #f8e8df;
-
-  font-family: Georgia, serif;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  padding: 25px;
-
-  overflow-x: hidden;
+ overflow-x:hidden
 
 }
 
-.container {
+button{font-family:inherit;cursor:pointer}
 
-  width: 100%;
+.hero{
 
-  max-width: 480px;
+ min-height:100svh;display:flex;align-items:center;
 
-  text-align: center;
+ justify-content:center;text-align:center;padding:25px;
 
-}
+ background:radial-gradient(ellipse at 50% 45%,#55202f 0%,#210d17 48%,#10070c 100%);
 
-.small {
-
-  color: #c9a46b;
-
-  letter-spacing: 5px;
-
-  font-size: 11px;
-
-  margin-bottom: 35px;
+ position:relative;overflow:hidden
 
 }
 
-h1 {
+.hero:before{
 
-  font-size: 35px;
+ content:"";position:absolute;inset:0;opacity:.18;
 
-  font-weight: normal;
+ background-image:radial-gradient(#e9c18a 1px,transparent 1px);
 
-  color: #f3d6b0;
-
-  margin-bottom: 12px;
+ background-size:38px 38px
 
 }
 
-.subtitle {
+.content{position:relative;z-index:2;width:100%;max-width:520px}
 
-  color: #d3a8a9;
+.eyebrow{letter-spacing:5px;color:#d4b078;font-size:10px}
 
-  font-size: 14px;
+h1{font-size:clamp(34px,9vw,55px);font-weight:normal;color:#f4d7b1;margin:20px 0 12px}
 
-  margin-bottom: 55px;
+.sub{color:#d5b7b4;font-size:14px;letter-spacing:1px}
 
-}
+.envelope-wrap{margin:65px auto 0;width:270px;height:175px;perspective:900px}
 
-.envelope {
+.envelope{
 
-  position: relative;
+ position:relative;width:100%;height:100%;background:#70223b;
 
-  width: 270px;
-
-  height: 175px;
-
-  background: #761e35;
-
-  margin: 0 auto;
-
-  cursor: pointer;
-
-  border-radius: 4px;
-
-  box-shadow: 0 15px 50px #0009;
-
-  transition: transform .4s;
+ border-radius:4px;box-shadow:0 20px 65px #0009;cursor:pointer
 
 }
 
-.envelope:hover {
+.env-front{
 
-  transform: translateY(-7px);
+ position:absolute;inset:0;z-index:3;
 
-}
-
-.envelope:before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background: #8d2944;
-
-  clip-path: polygon(0 0, 50% 57%, 100% 0);
-
-  z-index: 3;
-
-  transform-origin: top;
-
-  transition: transform .9s;
+ background:#8b2b48;clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%)
 
 }
 
-.envelope:after {
+.env-flap{
 
-  content: "";
+ position:absolute;inset:0;z-index:4;background:#a13b55;
 
-  position: absolute;
+ clip-path:polygon(0 0,100% 0,50% 60%);
 
-  inset: 0;
-
-  background: #60172c;
-
-  clip-path: polygon(0 100%, 50% 48%, 100% 100%);
-
-  z-index: 2;
+ transform-origin:top;transition:transform 1s
 
 }
 
-.seal {
+.seal{
 
-  position: absolute;
+ position:absolute;z-index:5;top:65px;left:50%;
 
-  z-index: 4;
+ transform:translateX(-50%);width:44px;height:44px;
 
-  top: 65px;
+ border-radius:50%;display:grid;place-items:center;
 
-  left: 50%;
+ background:linear-gradient(145deg,#f0d29b,#b27b42);
 
-  transform: translateX(-50%);
-
-  width: 43px;
-
-  height: 43px;
-
-  border-radius: 50%;
-
-  background: #d1a45f;
-
-  color: #65172d;
-
-  display: grid;
-
-  place-items: center;
-
-  font-size: 23px;
-
-  transition: opacity .3s;
+ color:#70223b;font-size:24px
 
 }
 
-.hint {
+.envelope.open .env-flap{transform:rotateX(180deg)}
 
-  color: #e1c6bb;
+.envelope.open .seal{opacity:0;transition:opacity .3s}
 
-  margin-top: 30px;
+.hint{margin-top:30px;color:#d8b6aa;font-size:11px;letter-spacing:3px}
 
-  font-size: 13px;
+.btn{
 
-  letter-spacing: 2px;
+ border:1px solid #b58c60;background:#28121d;color:#f2d9b5;
 
-}
+ padding:13px 22px;border-radius:30px;margin:10px 4px;
 
-.letter {
-
-  display: none;
-
-  background: linear-gradient(145deg, #f7e9d8, #ead4c1);
-
-  color: #542536;
-
-  padding: 32px 25px;
-
-  border-radius: 5px;
-
-  box-shadow: 0 15px 60px #0009;
-
-  text-align: left;
-
-  line-height: 1.9;
-
-  animation: appear 1.2s ease;
+ letter-spacing:1px;font-size:12px
 
 }
 
-.letter h2 {
+.btn:hover{background:#522238}
 
-  text-align: center;
+#letterSection{display:none;padding:55px 20px;background:#1a0b13}
 
-  font-weight: normal;
+.paper{
 
-  color: #8a2945;
+ max-width:540px;margin:auto;padding:35px 27px;
 
-  margin-top: 0;
+ background:linear-gradient(145deg,#f8ead9,#e9d2bc);
 
-}
+ color:#572638;box-shadow:0 15px 60px #0008;
 
-.letter p {
-
-  font-size: 15px;
+ line-height:1.9;animation:rise 1.2s ease
 
 }
 
-.signature {
+.paper h2{text-align:center;font-weight:normal;color:#8c3450}
 
-  text-align: right;
+.paper p{font-size:16px}
 
-  color: #8a2945;
+.signature{text-align:right;color:#963b55;font-style:italic;font-size:20px}
 
-  font-style: italic;
+.section{padding:65px 20px;text-align:center}
 
-  font-size: 19px;
+.section h2{font-weight:normal;font-size:30px;color:#e9c99d}
 
-  margin-top: 25px;
+.section p{color:#cdb4b0;line-height:1.8}
 
-}
+.gold{color:#d8b57e}
 
-.open .envelope {
+.gallery{
 
-  display: none;
+ max-width:700px;margin:25px auto;display:grid;
 
-}
-
-.open .hint {
-
-  display: none;
+ grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
 
 }
 
-.open .letter {
+.gallery img{
 
-  display: block;
+ width:100%;height:190px;object-fit:cover;border-radius:5px;
 
-}
-
-@keyframes appear {
-
-  from { opacity: 0; transform: translateY(25px); }
-
-  to { opacity: 1; transform: translateY(0); }
+ border:1px solid #785044
 
 }
 
-.footer {
+.upload{
 
-  color: #a77c7d;
+ display:inline-block;border:1px dashed #b58c60;padding:17px;
 
-  font-size: 11px;
-
-  margin-top: 40px;
-
-  letter-spacing: 2px;
+ border-radius:8px;color:#e9c99d;margin:15px auto
 
 }
 
-.heart {
+.memory{
 
-  position: fixed;
+ max-width:450px;margin:25px auto;border-left:1px solid #a77b59;
 
-  bottom: -20px;
-
-  color: #c34c69;
-
-  animation: float 6s linear forwards;
-
-  pointer-events: none;
+ padding:5px 20px;text-align:left;color:#dfc7bd;line-height:1.8
 
 }
 
-@keyframes float {
+.secret{
 
-  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+ display:none;max-width:500px;margin:25px auto;padding:28px;
+
+ border:1px solid #a77b59;background:#28121d;
+
+ color:#f1d6bc;line-height:2;animation:rise 1s
 
 }
+
+footer{padding:35px;text-align:center;color:#9f797e;font-size:11px;letter-spacing:3px}
+
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+
+.petal{
+
+ position:fixed;top:-30px;z-index:10;pointer-events:none;
+
+ color:#c45a73;animation:fall linear forwards
+
+}
+
+@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:0}}
+
+@media(max-width:420px){.gallery img{height:145px}.paper{padding:28px 20px}}
 
 </style>
 
@@ -308,69 +210,274 @@ h1 {
 
 <body>
 
-<div class="container" id="main">
+<section class="hero" id="hero">
 
-  <div class="small">A STORY WRITTEN WITH LOVE</div>
+ <div class="content">
 
-  <h1>Zeynep ❤️ Emirhan</h1>
+  <div class="eyebrow">A LITTLE UNIVERSE OF LOVE</div>
 
-  <div class="subtitle">Sana anlatmak istediğim küçük bir şey var...</div>
+  <h1>Zeynep & Emirhan</h1>
 
-  <div class="envelope" onclick="openLetter()">
+  <div class="sub">Sana ait küçük bir dünyam var...</div>
+
+  <div class="envelope-wrap">
+
+   <div class="envelope" id="envelope" onclick="openLetter()">
+
+    <div class="env-front"></div>
+
+    <div class="env-flap"></div>
 
     <div class="seal">♥️</div>
 
-  </div>
-
-  <div class="hint">ZARFI AÇMAK İÇİN DOKUN</div>
-
-  <div class="letter">
-
-    <h2>Sevgili Zeynep ❤️</h2>
-
-    <p>
-
-    yavrum seninle geçirdiğim her an benim için çok kıymetli bazen sana bakarken ne kadar şanslı olduğumu düşünüyorum hayatımda olman bana çok güzel hissettiriyor senin gülüşün sesin bana bakışın bile günümü güzelleştirmeye yetiyor belki her zaman her şeyi mükemmel yapamıyorum ama seni gerçekten çok seviyorum ve her geçen gün sana daha çok bağlanıyorum tek istediğim seninle daha nice güzel anılar biriktirmek ve her zaman yanında olmak iyi ki varsın iyi ki benimlesin sevgilim ❤️
-
-    </p>
-
-    <div class="signature">Seni seven Emirhan</div>
+   </div>
 
   </div>
 
-  <div class="footer">SONSUZA DEK SENİNLE ♥️</div>
+  <div class="hint" id="hint">MEKTUBUNU AÇMAK İÇİN DOKUN</div>
 
-</div>
+  <button class="btn" onclick="toggleMusic()" id="musicButton">♫ MÜZİĞİ BAŞLAT</button>
+
+ </div>
+
+</section>
+
+<section id="letterSection">
+
+ <div class="paper">
+
+  <div class="eyebrow" style="text-align:center;color:#986047">BİRİCİK SEVGİLİME</div>
+
+  <h2>Zeynep ❤️</h2>
+
+  <p>yavrum seninle geçirdiğim her an benim için çok kıymetli bazen sana bakarken ne kadar şanslı olduğumu düşünüyorum hayatımda olman bana çok güzel hissettiriyor senin gülüşün sesin bana bakışın bile günümü güzelleştirmeye yetiyor belki her zaman her şeyi mükemmel yapamıyorum ama seni gerçekten çok seviyorum ve her geçen gün sana daha çok bağlanıyorum tek istediğim seninle daha nice güzel anılar biriktirmek ve her zaman yanında olmak iyi ki varsın iyi ki benimlesin sevgilim ❤️</p>
+
+  <div class="signature">Seni seven Emirhan</div>
+
+ </div>
+
+</section>
+
+<section class="section">
+
+ <div class="eyebrow">OUR MEMORIES</div>
+
+ <h2>Birlikte Biriktirdiklerimiz</h2>
+
+ <p>Her fotoğrafın arkasında güzel bir anı saklı...</p>
+
+ <label class="upload">
+
+  <input type="file" id="photos" accept="image/*" multiple hidden>
+
+  + Fotoğraflarımızı seç
+
+ </label>
+
+ <div class="gallery" id="gallery"></div>
+
+</section>
+
+<section class="section">
+
+ <div class="eyebrow">OUR STORY</div>
+
+ <h2>Bizim Hikâyemiz</h2>
+
+ <div class="memory">
+
+  <div class="gold">Birlikte...</div>
+
+  Bazen en güzel hikâyeler hiç beklemediğin anda başlar.
+
+  Seninle geçirdiğim her anın daha nice güzel anılara dönüşmesini istiyorum.
+
+  <br><br>
+
+  <span class="gold">Ve hikâyemiz devam ediyor...</span>
+
+ </div>
+
+</section>
+
+<section class="section">
+
+ <div class="eyebrow">ONE LAST SURPRISE</div>
+
+ <h2>Sana Küçük Bir Sürprizim Var</h2>
+
+ <p>Bu küçük dünyada henüz keşfetmediğin bir şey var...</p>
+
+ <button class="btn" onclick="showSecret()">SÜRPRİZİ AÇ ♥️</button>
+
+ <div class="secret" id="secret">
+
+  Zeynep, bu sitenin sonu olabilir ama seninle yaşamak istediğim güzel şeylerin sonu hiç gelmesin. İyi ki hayatımdasın yavrum. Seni çok seviyorum. ❤️
+
+  <br><br>
+
+  <span class="gold">Daima senin, Emirhan</span>
+
+ </div>
+
+</section>
+
+<footer>MADE WITH LOVE · EMİRHAN ♥️ ZEYNEP</footer>
 
 <script>
 
-function openLetter() {
+let audioContext=null;
 
-  document.getElementById("main").classList.add("open");
+let musicTimer=null;
 
-  for (let i = 0; i < 18; i++) {
+let musicOn=false;
 
-    setTimeout(createHeart, i * 180);
+let noteIndex=0;
 
-  }
+function openLetter(){
+
+ const env=document.getElementById("envelope");
+
+ if(env.classList.contains("open"))return;
+
+ env.classList.add("open");
+
+ document.getElementById("hint").textContent="SANA KÜÇÜK BİR HEDİYEM VAR ❤️";
+
+ petals();
+
+ setTimeout(()=>{
+
+  document.getElementById("letterSection").style.display="block";
+
+  document.getElementById("letterSection").scrollIntoView({behavior:"smooth"});
+
+ },850);
 
 }
 
-function createHeart() {
+function petals(){
 
-  const heart = document.createElement("div");
+ for(let i=0;i<24;i++){
 
-  heart.className = "heart";
+  setTimeout(()=>{
 
-  heart.innerHTML = "♥️";
+   const p=document.createElement("div");
 
-  heart.style.left = Math.random() * 100 + "vw";
+   p.className="petal";p.textContent=Math.random()>.5?"♥️":"✿";
 
-  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+   p.style.left=Math.random()*100+"vw";
 
-  document.body.appendChild(heart);
+   p.style.fontSize=(13+Math.random()*18)+"px";
 
-  setTimeout(() => heart.remove(), 6000);
+   p.style.animationDuration=(4+Math.random()*4)+"s";
+
+   document.body.appendChild(p);
+
+   setTimeout(()=>p.remove(),8500);
+
+  },i*110);
+
+ }
+
+}
+
+function toggleMusic(){
+
+ if(musicOn){
+
+  clearInterval(musicTimer);
+
+  musicOn=false;
+
+  document.getElementById("musicButton").textContent="♫ MÜZİĞİ BAŞLAT";
+
+  return;
+
+ }
+
+ try{
+
+  const AudioCtx=window.AudioContext||window.webkitAudioContext;
+
+  audioContext=new AudioCtx();
+
+  audioContext.resume();
+
+  musicOn=true;
+
+  document.getElementById("musicButton").textContent="♫ MÜZİĞİ DURDUR";
+
+  const melody=[261.63,329.63,392,329.63,293.66,349.23,440,349.23,261.63,329.63,392,523.25,440,392,329.63,293.66];
+
+  function playNote(){
+
+   const osc=audioContext.createOscillator();
+
+   const gain=audioContext.createGain();
+
+   osc.type="sine";
+
+   osc.frequency.value=melody[noteIndex%melody.length];
+
+   gain.gain.setValueAtTime(0.0001,audioContext.currentTime);
+
+   gain.gain.exponentialRampToValueAtTime(0.075,audioContext.currentTime+.15);
+
+   gain.gain.exponentialRampToValueAtTime(0.0001,audioContext.currentTime+1.1);
+
+   osc.connect(gain);gain.connect(audioContext.destination);
+
+   osc.start();osc.stop(audioContext.currentTime+1.2);
+
+   noteIndex++;
+
+  }
+
+  playNote();
+
+  musicTimer=setInterval(playNote,850);
+
+ }catch(e){
+
+  alert("Bu tarayıcı müziği başlatamadı.");
+
+ }
+
+}
+
+document.getElementById("photos").addEventListener("change",function(e){
+
+ const gallery=document.getElementById("gallery");
+
+ gallery.innerHTML="";
+
+ [...e.target.files].forEach(file=>{
+
+  if(!file.type.startsWith("image/"))return;
+
+  const img=document.createElement("img");
+
+  img.alt="Birlikte güzel bir anımız";
+
+  img.src=URL.createObjectURL(file);
+
+  gallery.appendChild(img);
+
+ });
+
+});
+
+function showSecret(){
+
+ const s=document.getElementById("secret");
+
+ s.style.display="block";
+
+ petals();
+
+ s.scrollIntoView({behavior:"smooth",block:"center"});
+
 }
 
 </script>
